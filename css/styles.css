@@ -46,6 +46,13 @@ img {
     display: block;
 }
 
+.logo-img{
+    width:150px;
+    height:auto;
+    object-fit:contain;
+    display:block;
+}
+
 
 .container {
     width: min(1180px,91%);
@@ -981,7 +988,9 @@ footer {
 /* MOBILE */
 
 @media(max-width:600px) {
-
+ .logo-img{
+        width:115px;
+    }
     .navbar {
         top: 10px;
     }
