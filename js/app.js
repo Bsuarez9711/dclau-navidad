@@ -74,16 +74,20 @@ if (gallery && typeof galleryViewer?.showModal === "function") {
     const photos = Array.from(gallery.querySelectorAll(".gallery-item"));
     const viewerImage = galleryViewer.querySelector("img");
     const caption = galleryViewer.querySelector("#gallery-caption");
+    const inquiry = galleryViewer.querySelector(".gallery-inquiry");
     let activePhoto = 0;
 
     function showPhoto(index) {
         activePhoto = (index + photos.length) % photos.length;
         const photo = photos[activePhoto];
         const description = photo.querySelector("img").alt;
+        const product = photo.dataset.product;
+        const message = `¡Hola, D'CLAU! 🎄 ¿Tienen disponibilidad de «${product}»?`;
 
         viewerImage.alt = description;
         viewerImage.src = photo.href;
-        caption.textContent = `${description} · ${activePhoto + 1} de ${photos.length}`;
+        caption.textContent = `${product} · ${activePhoto + 1} de ${photos.length}`;
+        inquiry.href = `https://wa.me/573122407104?text=${encodeURIComponent(message)}`;
     }
 
     gallery.addEventListener("click", event => {
